@@ -2,10 +2,12 @@ package com.example.android.nanodegree;
 
 import android.widget.ImageView;
 
+import java.io.Serializable;
+
 /**
  * Created by spruisken on 12/12/15.
  */
-public class Movie {
+public class Movie implements Serializable {
     String title;
     String thumbnail_path;
     String plot_synopsis;

@@ -1,5 +1,6 @@
 package com.example.android.nanodegree;
 
+import android.content.Intent;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -11,7 +12,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import org.json.JSONArray;
@@ -32,7 +33,7 @@ import java.util.List;
  */
 public class PopularMoviesActivityFragment extends Fragment {
 
-    private ArrayAdapter<Movie> mMoviesAdapter;
+    private ImageAdapter mMoviesAdapter;
 
     public PopularMoviesActivityFragment() {
     }
@@ -60,6 +61,16 @@ public class PopularMoviesActivityFragment extends Fragment {
         gridView.setAdapter(mMoviesAdapter);
         FetchMoviesTask moviesTask = new FetchMoviesTask();
         moviesTask.execute("discover","movie","popularity","w185");
+
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Movie movie  = mMoviesAdapter.getItem(position);
+                Intent intent = new Intent(getActivity(), DetailActivity.class);
+                intent.putExtra("EXTRA_MOVIE_INFO",movie);
+                startActivity(intent);
+            }
+        });
 
         return rootView;
     }
@@ -197,6 +208,7 @@ public class PopularMoviesActivityFragment extends Fragment {
             } catch (IOException e) {
 
                 Log.e(LOG_TAG, "Error ", e);
+                Log.e(LOG_TAG, Log.getStackTraceString(e));
                 return null;
 
             } finally {
