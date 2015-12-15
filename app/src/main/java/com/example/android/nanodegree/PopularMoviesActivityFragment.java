@@ -106,6 +106,7 @@ public class PopularMoviesActivityFragment extends Fragment {
             final String M_THUMBNAIL_PATH = "poster_path";
             final String M_PLOT_SYNOPSIS = "overview";
             final String M_RATING = "vote_average";
+            final String M_RELEASE_DATE = "release_date";
 
             JSONObject moviesJson = new JSONObject(popularMovies);
             JSONArray moviesArray = moviesJson.getJSONArray(M_RESULTS);
@@ -118,6 +119,7 @@ public class PopularMoviesActivityFragment extends Fragment {
                 String title = movieJson.getString(M_TITLE);
                 String plot_synopsis = movieJson.getString(M_PLOT_SYNOPSIS);
                 String user_rating = movieJson.getString(M_RATING);
+                String release_date = movieJson.getString(M_RELEASE_DATE);
 
                 String thumbnail_path = movieJson.getString(M_THUMBNAIL_PATH);
 
@@ -134,8 +136,9 @@ public class PopularMoviesActivityFragment extends Fragment {
                 Log.v(LOG_TAG, "Built URI " + thumbnail_full_path);
                 Log.v(LOG_TAG, "Plot Synopsis " + plot_synopsis);
                 Log.v(LOG_TAG, "User Rating " + user_rating);
+                Log.v(LOG_TAG, "Release Date " + release_date);
 
-                Movie movie = new Movie(title,thumbnail_full_path,plot_synopsis,user_rating);
+                Movie movie = new Movie(title,thumbnail_full_path,plot_synopsis,user_rating,release_date);
                 movies.add(movie);
 
             }
