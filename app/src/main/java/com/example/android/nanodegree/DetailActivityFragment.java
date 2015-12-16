@@ -11,9 +11,6 @@ import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
 
-/**
- * Created by spruisken on 12/14/15.
- */
 public class DetailActivityFragment extends Fragment {
 
     private final String LOG_TAG = DetailActivity.class.getSimpleName();

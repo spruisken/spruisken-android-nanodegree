@@ -4,9 +4,6 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 
-/**
- * Created by spruisken on 12/14/15.
- */
 public class DetailActivity extends AppCompatActivity {
 
     @Override
