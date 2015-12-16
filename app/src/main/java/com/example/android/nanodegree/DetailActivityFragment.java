@@ -3,7 +3,6 @@ package com.example.android.nanodegree;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -43,9 +42,6 @@ public class DetailActivityFragment extends Fragment {
         TextView synopsisView = (TextView) rootView.findViewById(R.id.detail_view_synopsis);
         TextView ratingView = (TextView) rootView.findViewById(R.id.detail_view_rating);
         TextView releaseDateView = (TextView) rootView.findViewById(R.id.detail_view_release_date);
-
-        Log.v(LOG_TAG, "User Rating " + this.movie.user_rating);
-        Log.v(LOG_TAG, "Release Date " + this.movie.release_date);
 
         Picasso.with(getContext()).load(this.movie.getThumbnailPath()).into(thumbnail);
         synopsisView.setText("Synopsis: " + this.movie.plot_synopsis);

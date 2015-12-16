@@ -7,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.Toast;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -26,7 +25,7 @@ public class MainActivityFragment extends Fragment {
 
         popularMoviesButton.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "Popular Movies Clicked", Toast.LENGTH_SHORT).show();
+                //launch Popular Movies Project.
                 Intent intent = new Intent(getActivity(), PopularMoviesActivity.class);
                 startActivity(intent);
             }

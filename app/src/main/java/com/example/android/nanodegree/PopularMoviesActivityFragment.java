@@ -65,6 +65,7 @@ public class PopularMoviesActivityFragment extends Fragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                //launch Movie Detail Activity
                 Movie movie  = mMoviesAdapter.getItem(position);
                 Intent intent = new Intent(getActivity(), DetailActivity.class);
                 intent.putExtra("EXTRA_MOVIE_INFO",movie);
