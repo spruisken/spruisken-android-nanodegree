@@ -35,10 +35,12 @@ public class DetailActivityFragment extends Fragment {
 
         View rootView = inflater.inflate(R.layout.fragment_detail, container, false);
 
-        ImageView thumbnail = (ImageView) rootView.findViewById(R.id.detail_view_thumbnail);
-        TextView synopsisView = (TextView) rootView.findViewById(R.id.detail_view_synopsis);
-        TextView ratingView = (TextView) rootView.findViewById(R.id.detail_view_rating);
-        TextView releaseDateView = (TextView) rootView.findViewById(R.id.detail_view_release_date);
+        View subView = rootView.findViewById(R.id.detail_view_linear_layout);
+
+        ImageView thumbnail = (ImageView) subView.findViewById(R.id.detail_view_thumbnail);
+        TextView synopsisView = (TextView) subView.findViewById(R.id.detail_view_synopsis);
+        TextView ratingView = (TextView) subView.findViewById(R.id.detail_view_rating);
+        TextView releaseDateView = (TextView) subView.findViewById(R.id.detail_view_release_date);
 
         Picasso.with(getContext()).load(this.movie.getThumbnailPath()).into(thumbnail);
         synopsisView.setText("Synopsis: " + this.movie.plot_synopsis);
